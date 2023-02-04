@@ -1,0 +1,518 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+@font-face {
+    font-family: 'ubuntu' sans-serif;
+    src: url("./assets/fonts/Ubuntu-Bold.ttf");
+    src: url("./assets/fonts/Ubuntu-Regular.ttf");
+    src: url("./assets/fonts/Ubuntu-Medium.ttf");
+}
+:root{
+    --padding-1:1rem;
+    --border-radius:15px;
+    --big-text-color:hsl(213,96%,18%);
+    --small-text-color:hsl(229,24%,87%);
+    --box-shadow: 5px 5px 20px 0px rgba(214,217,230,1);
+}
+body{
+    font-family: 'ubuntu', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    min-height: 100vh;  
+    background-color: hsl(210,46%,95%);
+    padding: 3rem;
+    
+}
+/* ----------------container-------- */
+.container{
+    width: 70%;
+    margin:0 auto;
+    position: relative;
+    padding: var(--padding-1);
+    background-color: hsl(0,0%,100%);
+    border-radius: var(--border-radius);
+    height: 32rem;
+    box-shadow: var(--box-shadow);
+   
+}
+/* ---------sidebar---------- */
+.sidebar{
+    position: absolute;
+    top: var(--padding-1);
+    left: var(--padding-1);
+    background-image: url('../images/bg-sidebar-desktop.svg');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    height: 30rem;
+    width: 27%;
+    border-radius: var(--border-radius);
+   
+}
+.sidebar .step{
+    margin: 20px ;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    color: #fff;
+    font-weight: 400;
+    font-size: 12px;
+
+}
+.current-step{
+    background-color: hsl(206,94%,87%);
+    color: var(--big-text-color);
+}
+.sidebar .step h5{
+    color: var(--small-text-color);
+}
+.sidebar .step .circle{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+   
+
+
+}
+
+/* ----------------------selections------------ */
+.selection{
+    transform: translateX(100%);
+    scale: 0;
+}
+.active-selection{
+    transform: translateX(0);
+    scale: 1;
+    
+}
+.selection{
+    position: absolute;
+    top: var(--padding-1);
+    right: var(--padding-1);
+    height: 30rem;
+    left: 30%;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding: 0 3rem;
+    padding-top: 1rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    transition: all .4s linear .25s;
+    
+}
+.selection h2{
+    font-weight: 700;
+    color:var(--big-text-color);
+    margin: 1rem 0;
+    font-size: 30px;
+}
+.selection h2{
+    font-weight: 700;
+    color:var(--big-text-color);
+    
+    font-size: 30px;
+}
+.selection p{
+    font-weight: 400;
+    color:var(--small-text-color);
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+
+
+   
+    
+
+ .btn{
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 5px;
+    width: 120px;
+    height: 40px;
+    color: hsl(210,46%,95%);
+    cursor: pointer;
+}
+ #next{
+    position: absolute;
+    right: 10%;
+    bottom: 2rem;
+    background-color: var(--big-text-color);
+    color: hsl(210,46%,95%);
+
+}
+ #back{
+    position: absolute;
+    left: 48%;
+    transform: translateX(-50%);
+    bottom: 2rem;
+    color:var(--big-text-color);
+
+}
+  #back:hover{
+   
+    border: 1px solid var(--big-text-color);
+    color:var(--big-text-color);
+
+}
+
+
+/* --------------personal info--------- */
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+form label{
+    text-align: left;
+    color: var(--big-text-color);
+    margin-bottom: 10px;
+    font-weight:normal;
+   
+    
+}
+form input{
+    outline: 0;
+    padding-left: 3px;
+    color: var(--big-text-color);
+    font-weight: 500;
+    font-size: 16px;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    /* margin-bottom: 20px; */
+    border: 1px solid hsl(229,24%,87%);
+}
+form .input-group{
+    /* background-color: aqua; */
+    margin-bottom: 20px;
+    position: relative;
+}
+form .input-group.valid span,
+.input-group.error span{
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    font-weight: 500; 
+}
+.error input{
+ border-color: hsl(354,84%,57%);
+}
+.valid input{
+    border-color:  hsl(206,94%,87%);
+   }
+.error span{
+    color:hsl(354,84%,57%);  
+}
+.valid span {
+    color: hsl(206,94%,87%);
+}
+.no-back{
+    opacity: 0;
+    scale: 0;
+}
+
+
+/* -----------------select plan-------------- */
+ .selection .plans{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-top: 1rem;
+    gap: 1.5rem;
+   
+ }
+ .selection .plans .plan{
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid hsl(231,11%,63%);
+    border-radius: 10px;
+ }
+ .selection .plans .plan img{
+    width: 40px;
+    
+      
+ }
+ .selection .plans .plan:hover{
+    border: 1px solid hsl(243,100%,62%);
+ }
+ .selected-plan{
+    border: 1px solid hsl(243,100%,62%);
+    background-color:hsl(217, 100%, 97%);
+ }
+ .selection .plans .plan span{
+    color: var(--big-text-color);
+    font-size: 15px;
+ }
+ .plans.monthly .month-price   {
+     margin-top: 4px;
+     
+ }
+
+ .plans.yearly .year-price span{
+      margin-top: 1rem;
+      
+ }
+
+ .plans.monthly .year-price{
+       
+       display: none;
+      
+ }
+
+ .plans.yearly .month-price{
+     display: none;
+    
+ }
+
+
+ .selection .billing{
+    width: 100%;
+    
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(231,100%,99%);
+    margin-top: 1rem;
+    border-radius: 10px;
+ }    
+ .selection .billing {
+      color: var(--small-text-color);
+ }
+ .selection .billing .bill{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: .8rem 1rem;
+      background-color: var(--big-text-color);
+      height: 20px;
+      width: 40px;
+      border-radius: 30px;
+ }
+ .selection .billing .bill .bill-circle{
+    width: 20px;
+    height: 19px;
+    cursor:grab;
+    border-radius: 30px;
+ }
+.selected-bill{
+    background-color: #fff;
+}
+.selected-span{
+    color: var(--big-text-color);
+    
+}
+
+/* ---------pick Add ons--------- */
+#select3 .section-descritiom{
+    margin-bottom: 2rem;
+    
+}
+#select3 .add-on{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid hsl(229,24%,87%);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 5px;
+    
+}
+#select3 .add-on:hover{
+    border: 1px solid hsl(243,100%,62%);
+}
+#select3 .add-on .left{
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    margin-left: 1rem;
+    font-size: 12px;
+}
+#select3 .add-on input{
+    width: 20px;
+}
+#select3 .add-on h3,.price{
+    color: var(--big-text-color);
+}
+.selected-addOn{
+    
+    background-color:hsl(217, 100%, 97%);
+}
+
+
+
+/* ----------------finishup ----------- */
+ table{
+    width: 100%;
+    padding: 1rem ;
+   
+    
+}
+.total-billing tr th{
+    padding-bottom: 20px;
+    border-bottom: 1px solid hsl(210,46%,95%);
+}
+table tr td{
+    padding: 5px 0;
+}
+.total-billing{
+    background-color: hsl(206,94%,87%);
+}
+table tr th:first-child{
+    text-align: left;
+}
+table tr th:last-child,td:last-child{
+    text-align: right;
+}
+table a{
+    /* color:hsl(231,100%,99%); */
+    font-size: 16px;
+}
+.total tr th:first-child
+
+{
+    color: var(--small-text-color);
+}
+.total tr th:last-child{
+    color: hsl(243,100%,62%);
+}
+
+
+/* ----------thanks step 4---------------- */
+#select5{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#select5 img{
+    width: 80px;
+  
+}
+/* -------------------at screen 900px---------------- */
+@media screen and (max-width:900px) {
+    body{
+        padding: 3rem 0;
+    }
+    .container{
+        width: 80%;
+    }
+    
+ }
+/* -----------------at screen 375px------------ */
+@media screen and (max-width:375px) {
+    body{
+        padding: 0;
+    }
+    .container{
+        width:100%;
+        height: 98vh;
+        background-color: hsl(210,46%,95%);
+    }
+    .sidebar{
+        right: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-image: url('../images/bg-sidebar-mobile.svg');
+        height: 20%;
+       
+        border-radius: 0;
+       
+
+    }
+    .sidebar .step .text{
+        display: none;
+        scale: 0;
+
+    }
+    .sidebar .steps{
+        margin: 1rem auto;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        
+    }
+    .sidebar .step .circle{
+        width:50px ;
+        height: 50px;
+        margin: 0;
+    }
+    .sidebar .step{
+       
+        margin:5px;
+    }
+    .selection {
+        background-color: #fff;
+        width: 90%;
+        right: 5%;
+        left: 5%;
+        top: 12%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        box-shadow: var(--box-shadow);
+        height: 33rem;
+
+    }
+
+    #back{
+        left: 4rem;
+        bottom: 10px;
+    }
+    #next{
+        bottom: 10px;
+    }
+
+   #select3 .add-on p{
+    font-size: 12px;
+   }
+
+   .selection .plans{
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+   
+   }
+   .selection .plans .plan{
+    padding:5px ;
+    gap: .7rem;
+    
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    min-height: 0;
+   }
+    
+    
+ }
+
+
+
+/* -------------attribution------------- */
+.attribution
+ { font-size: 11px; 
+    text-align: center; 
+   
+ }
+.attribution a 
+ { 
+    color: hsl(228, 45%, 44%);
+ }

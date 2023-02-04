@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <script src="https://use.fontawesome.com/a7305bf806.js"></script>
+  
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <link rel="stylesheet" href="./assets/styles/style.css">
+</head>
+<body>
+  <div class="container">
+  <!-- Sidebar start -->
+      <div class="sidebar">
+        <div class="steps">
+          <div class="step  " onclick="step1()">
+            <div class="circle current-step" id="step1">1</div>
+            <div class="text">
+                <h5>Step 1</h5>
+                <h3>Your info</h3>
+            </div>
+          </div>
+          <div class="step" onclick="step2()">
+              <div class="circle " id="step2">2</div>
+              <div class="text">
+                  <h5>Step 2</h5>
+                  <h3>Select plan</h3>
+              </div>
+          </div>
+          <div class="step" onclick="step3()">
+            <div class="circle" id="step3">3</div>
+            <div class="text">
+                <h5>Step 3</h5>
+                <h3>Add-ons</h3>
+            </div>
+          </div>
+          <div class="step" onclick="step4()">
+            <div class="circle" id="step4">4</div>
+            <div class="text">
+                <h5>Step 4</h5>
+                <h3>Summary</h3>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+
+  <!-- Sidebar end -->
+
+  <!-- Step 1 start -->
+   <div class="selection  active-selection" id="select1">
+      <div>
+        <h2>Personal info</h2>
+        <p class="section-descritiom"> Please provide your name, email address, and phone number.</p>
+     
+        <form id="info">
+          <div class="input-group">
+            <label for="" class="label">Name</label>
+            <input type="text" name="" id="formName" placeholder="e.g. Stephen King" onkeyup="validateName()">
+            <span id="nameError"></span>
+          </div>
+          <div class="input-group">
+            <label for="" class="label">Email Address</label>
+            <input type="email" id="formEmail" placeholder="e.g. stephenking@lorem.com" onkeyup="validateEmail()">
+            <span id="emailError"></span>
+          </div> 
+          <div class="input-group ">
+            <label for="" class="label">Phone Number</label>
+            <input type="tel" id="formPhone" placeholder="e.g. +1 234 567 890" onkeyup="validatePhone()">
+            <span id="phoneError"></span>
+          </div>
+        </form>
+      </div>
+      
+      
+   </div>
+  <!-- Step 1 end -->
+
+  <!-- Step 2 start -->
+  <div class="selection" id="select2">
+    <div>
+      <h2>Select your plan</h2>
+    <p class="section-descritiom"> You have the option of monthly or yearly billing.</p>
+    <div class="plans monthly">
+      <div class="plan selected-plan"  id="plan1" >
+        <img src="./assets/images/icon-arcade.svg" alt="" class="plan-image">
+        
+          <div>
+            <span >Arcade</span>
+            <p class="month-price">$9/mo</p>
+            <div class="year-price">
+                <p>$90/yr </p>
+                <span> 2 month free</span>
+            </div>
+          </div>
+      </div>
+      <div class="plan " id="plan2" >
+        <img src="./assets/images/icon-advanced.svg" alt="" class="plan-image">
+        
+        <div>
+          <span>Advanced</span>
+          <p class="month-price">$12/mo</p>
+          <div class="year-price">
+              <p>$120/yr </p>
+              <span> 2 month free</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="plan" id="plan3" >
+        <img src="./assets/images/icon-pro.svg" alt="" class="plan-image">
+        <div class="testing">
+          <span>Pro </span>
+          <p class="month-price">$15/mo</p>
+          <div class="year-price" >
+              <p>$150/yr </p>
+              <span> 2 month free</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="billing">
+      <span class="selected-span" id="month" >
+         Monthly
+      </span>
+        <div class="bill">
+          <div class="bill-circle selected-bill" id="monthly"></div>
+          <div class="bill-circle" id="yearly"></div>
+        </div>
+      <span class="" id="year">  
+        Yearly
+      </span>
+    </div>
+    </div>
+    
+  </div>
+ 
+  <!-- Step 2 end -->
+
+  <!-- Step 3 start -->
+  <div class="selection" id="select3">
+    <div>
+      <h2>Pick add-ons</h2>
+      <p class="section-descritiom"> Add-ons help enhance your gaming experience.</p>
+      <div class="add-ons">
+        <div class="add-on" id="onlineAdd">
+          <div class="left">
+            <input type="checkbox" name="online" id="online">
+            <div class="text">
+              <h3>Online service</h3>
+              <p> Access to multiplayer games</p>
+            </div>
+          </div>
+          <div class="price">+$1/mo </div>
+        </div>
+  
+        <div class="add-on" id="storageAdd">
+          <div class="left">
+            <input type="checkbox" name="storage" id="storage">
+            <div class="text">
+              <h3>Larger storage</h3>
+              <p>Extra 1TB of cloud save</p>
+            </div>
+          </div>
+          <div class="price"> 
+            +$2/mo 
+          </div>
+        </div>
+        
+        <div class="add-on" id="customeAdd">
+          <div class="left">
+            <input type="checkbox" name="custome" id="custome">
+            <div class="text">
+              <h3> Customizable Profile</h3>
+              <p>Custom theme on your profile</p>
+            </div>
+          </div>
+          <div class="price"> 
+            +$2/mo
+          </div>
+        </div>
+  
+      </div>
+    </div>
+    
+    
+  </div>
+
+  <!-- Step 3 end -->
+
+  <!-- Step 4 start -->
+  <div class="selection" id="select4">
+    <h2>Finishing up</h2>
+    <p class="section-descritiom"> Double-check everything looks OK before confirming.</p>
+     <!-- Dynamically add subscription and add-on selections here -->
+    <div >
+      <table class="total-billing">
+        <tr id="tebleHeader">
+          
+        </tr>
+        <tr id="0">
+          
+        </tr>
+        <tr id="1">
+          
+        </tr>
+        <tr id="2">
+
+        </tr>
+      </table>
+    
+    <table class="total" id="total">
+      <tr>
+        <th>
+          Total (per month/year)
+        </th>
+
+        <th id="total-cell">
+          
+        </th>
+      </tr>
+    </table>
+    </div>
+    
+ </div>
+
+
+  <!-- Step 4 end -->
+
+  <!-- Step 5 start -->
+  <div class="selection" id="select5">
+    <img src="./assets/images/icon-thank-you.svg" alt="">
+    <h2 >Thank you!</h2>
+    <p> Thanks for confirming your subscription! We hope you have fun 
+      using our platform. If you ever need support, please feel free 
+      to email us at support@loremgaming.com.  </p>
+  </div>
+
+  
+  <!-- Step 5 end -->
+  
+  <div class="btn back-btn" id="back" onclick="goBack()">Go Back</div>
+  <div class="btn next-btn" id="next" onclick="next()">Next Step</div>
+  
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Ssenyondo Micheal</a>.
+  </div>
+  <!-- ---------------------------js----------------- -->
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
