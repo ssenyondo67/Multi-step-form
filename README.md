@@ -26,7 +26,7 @@ div was alot requiring lowering of font size making the content less visible
 
 ### Links
 
-- Solution URLhttps://github.com/ssenyondo67/Multi-step-form
+- Solution URL https://github.com/ssenyondo67/Multi-step-form
 - Live Site URL:https://multi-step-form-two-khaki.vercel.app/
 
 ## My process
